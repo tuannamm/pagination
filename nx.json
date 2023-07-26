@@ -1,0 +1,14 @@
+{
+  "path": {
+    "@dgtx/pagination": [
+      "libs/pagination/src/index.ts"
+    ]
+  },
+  "projects": {
+    "utils": "libs/pagination"
+  },
+  "dependencies": {
+    "@bootstrap": "^5.3.0",
+    "@react-bootstrap": "^2.8.0",
+  }
+}
