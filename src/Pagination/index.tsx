@@ -21,7 +21,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     const isDisabledNext = currentPage >= totalPage;
 
     const items = new Array(totalPage).fill(null).map((_, page) => {
-      page = page + 1;
+      page++;
       if (
         page <= 2 ||
         page > totalPage - 2 ||
@@ -40,16 +40,14 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     });
 
     if (currentPage - pageEllipsis > 3) {
-      items
-        .splice(
-          2,
-          0,
-          <Pagination.Ellipsis
-            key="ellipsis1"
-            onClick={() => onChangePage(currentPage - pageEllipsis - 1)}
-          />
-        )
-        .slice(2, 2);
+      items.splice(
+        2,
+        0,
+        <Pagination.Ellipsis
+          key='ellipsis1'
+          onClick={() => onChangePage(currentPage - pageEllipsis - 1)}
+        />
+      );
     }
 
     if (currentPage + pageEllipsis < totalPage - 2) {
@@ -57,7 +55,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
         items.length - 2,
         0,
         <Pagination.Ellipsis
-          key="ellipsis2"
+          key='ellipsis2'
           onClick={() => onChangePage(currentPage + pageEllipsis + 1)}
         />
       );
@@ -78,13 +76,13 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
           />
           <Pagination.Prev
             disabled={isDisabledPrev}
-            key="prev"
+            key='prev'
             onClick={() => onChangePage(currentPage - 1)}
           />
           {items}
           <Pagination.Next
             disabled={isDisabledNext}
-            key="next"
+            key='next'
             onClick={() => onChangePage(currentPage + 1)}
           />
           <Pagination.Last
