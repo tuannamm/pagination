@@ -39,10 +39,10 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
       }
     });
 
-    if (currentPage - pageEllipsis > 3) {
+    if (currentPage - pageEllipsis > 2) {
       items.splice(
-        2,
         0,
+        2,
         <Pagination.Ellipsis
           key='ellipsis1'
           onClick={() => onChangePage(currentPage - pageEllipsis - 2)}
@@ -50,7 +50,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
       );
     }
 
-    if (currentPage + pageEllipsis < totalPage - 2) {
+    if (currentPage + pageEllipsis < totalPage - 3) {
       items.splice(
         items.length - 2,
         0,
