@@ -45,7 +45,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
         0,
         <Pagination.Ellipsis
           key='ellipsis1'
-          onClick={() => onChangePage(currentPage - pageEllipsis - 1)}
+          onClick={() => onChangePage(currentPage - pageEllipsis - 2)}
         />
       );
     }
@@ -56,7 +56,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
         0,
         <Pagination.Ellipsis
           key='ellipsis2'
-          onClick={() => onChangePage(currentPage + pageEllipsis + 1)}
+          onClick={() => onChangePage(currentPage + pageEllipsis + 2)}
         />
       );
     }

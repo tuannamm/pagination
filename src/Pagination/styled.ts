@@ -7,7 +7,8 @@ export const StyledPagination = styled.div(() => {
         marginLeft: pxToRem(1100),
       '.page-item': {
         textAlign: "center",
-        margin: pxToRem(3),  
+        margin: pxToRem(3),
+        width: pxToRem(40),
        '.page-link': {
           color: "black",
           borderRadius: pxToRem(4),
