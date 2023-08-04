@@ -1,12 +1,7 @@
 import PaginationItem from './PaginationItem';
 import { Pagination } from 'react-bootstrap';
 
-interface UsePaginationItemsProps {
-  totalPage: number;
-  currentPage: number;
-  onChangePage: (page: number) => void;
-  pageEllipsis: number;
-}
+import { UsePaginationItemsProps } from './model';
 
 const useCreatePaginationItem = ({
   totalPage,
