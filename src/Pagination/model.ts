@@ -5,3 +5,10 @@ export interface PaginationProps {
     totalRow: number,
     pageSize: number,
 }
+
+export interface PageItemProps {
+    page: number;
+    key?: number;
+    active: boolean;
+    onClick: (page: number) => void;
+}

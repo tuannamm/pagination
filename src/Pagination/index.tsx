@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { PaginationProps } from './model';
 import { StyledPagination } from './styled';
+import useCreatePaginationItem from './useCreatePaginationItem';
 
 const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
   (
@@ -20,48 +21,15 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     const isDisabledPrev = currentPage <= 1;
     const isDisabledNext = currentPage >= totalPage;
 
-    const items = new Array(totalPage).fill(null).map((_, page) => {
-      page++;
-      if (
-        page <= 2 ||
-        page > totalPage - 2 ||
-        Math.abs(currentPage - page) <= pageEllipsis
-      ) {
-        return (
-          <Pagination.Item
-            key={page}
-            active={page === currentPage}
-            onClick={() => onChangePage(page)}
-          >
-            {page}
-          </Pagination.Item>
-        );
-      }
+    const handleChangePage = (page: number) => onChangePage?.(page);
+
+    const items = useCreatePaginationItem({
+      totalPage,
+      currentPage,
+      onChangePage: handleChangePage,
+      pageEllipsis
     });
 
-    if (currentPage - pageEllipsis > 2) {
-      items.splice(
-        0,
-        2,
-        <Pagination.Ellipsis
-          key='ellipsis1'
-          onClick={() => onChangePage(currentPage - pageEllipsis - 2)}
-        />
-      );
-    }
-
-    if (currentPage + pageEllipsis < totalPage - 3) {
-      items.splice(
-        items.length - 2,
-        0,
-        <Pagination.Ellipsis
-          key='ellipsis2'
-          onClick={() => onChangePage(currentPage + pageEllipsis + 2)}
-        />
-      );
-    }
-
-    // controlled
     useEffect(() => {
       if (totalRow === undefined) return;
       setTotalPage(total);
@@ -72,22 +40,22 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
         <Pagination size={size}>
           <Pagination.First
             disabled={isDisabledPrev}
-            onClick={() => onChangePage(1)}
+            onClick={() => handleChangePage(1)}
           />
           <Pagination.Prev
             disabled={isDisabledPrev}
             key='prev'
-            onClick={() => onChangePage(currentPage - 1)}
+            onClick={() => handleChangePage(currentPage - 1)}
           />
           {items}
           <Pagination.Next
             disabled={isDisabledNext}
             key='next'
-            onClick={() => onChangePage(currentPage + 1)}
+            onClick={() => handleChangePage(currentPage + 1)}
           />
           <Pagination.Last
             disabled={isDisabledNext}
-            onClick={() => onChangePage(totalPage)}
+            onClick={() => handleChangePage(totalPage)}
           />
         </Pagination>
       </StyledPagination>
