@@ -9,7 +9,14 @@ import useCreatePaginationItem from './useCreatePaginationItem';
 
 const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
   (
-    { totalRow, pageSize, currentPage, onChangePage, size, ...restProps },
+    {
+      totalRow,
+      pageSize,
+      currentPage,
+      onChangePage,
+      setting = { itemWidth: 32, itemHeight: 32, fontSize: 14 },
+      ...restProps
+    },
     ref
   ) => {
     const pageEllipsis = 1;
@@ -36,8 +43,8 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     }, [totalRow]);
 
     return (
-      <StyledPagination>
-        <Pagination size={size}>
+      <StyledPagination setting={setting}>
+        <Pagination size='sm'>
           <Pagination.First
             disabled={isDisabledPrev}
             onClick={() => handleChangePage(1)}

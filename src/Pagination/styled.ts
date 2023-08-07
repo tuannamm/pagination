@@ -1,22 +1,31 @@
-
 import styled from "@emotion/styled";
 import { pxToRem } from "@dgtx/utils";
+import { StyleProps } from "./model";
 
-export const StyledPagination = styled.div(() => {
+export const StyledPagination = styled.div(({ setting }: StyleProps) => {
+
+  const {itemWidth, itemHeight, fontSize} = setting;
+
   return {
     '.pagination': {
         position: "relative",
+        display: "flex",
+        gap: pxToRem(8),
       '.page-item': {
-        alignItems: "center",
         textAlign: "center",
-        margin: pxToRem(3),
-        width: pxToRem(32),
-        height: pxToRem(32),
-        backgroundColor: "#F0F2F5",
+        backgroundColor: "#FFF",
        '.page-link': {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           color: "black",
           borderRadius: pxToRem(4),
+          alignContent: "center",
+          width: pxToRem(itemWidth),
+          height: pxToRem(itemHeight),
           border: `${pxToRem(1)} solid #D9D9D9`,
+          padding: `${pxToRem(4)} ${pxToRem(7)}`,
+          fontSize: pxToRem(fontSize)
         },
       },
       '.page-item.active .page-link': {
