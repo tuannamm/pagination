@@ -1,11 +1,19 @@
 import { forwardRef, useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { Select } from '@dgtx/select';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { PaginationProps } from './model';
 import { StyledPagination } from './styled';
 import useCreatePaginationItem from './useCreatePaginationItem';
+
+const options2 = [
+  { value: 10, label: '10 / page' },
+  { value: 20, label: '20 / page' },
+  { value: 50, label: '50 / page' }
+];
 
 const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
   (
@@ -14,7 +22,9 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
       pageSize,
       currentPage,
       onChangePage,
+      setPageSize,
       setting = { itemWidth: 32, itemHeight: 32, fontSize: 14 },
+      showSizeCharger = false,
       ...restProps
     },
     ref
@@ -62,6 +72,9 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
             onClick={() => handleChangePage(totalPage)}
           />
         </Pagination>
+        {showSizeCharger && (
+          <Select options={options2} value={pageSize} onChange={setPageSize} />
+        )}
       </StyledPagination>
     );
   }

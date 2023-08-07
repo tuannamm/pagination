@@ -8,6 +8,8 @@ export const StyledPagination = styled.div(({ setting }: StyleProps) => {
 
   return {
       height: pxToRem(itemHeight),
+      display: "flex",
+      gap: pxToRem(8),
     '.pagination': {
         position: "relative",
         display: "flex",

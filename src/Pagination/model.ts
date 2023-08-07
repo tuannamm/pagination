@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { Dispatch, HTMLAttributes, SetStateAction } from "react";
 
 export interface PaginationItemSetting {
     itemWidth: number ,
@@ -15,7 +15,9 @@ export interface PaginationProps {
     onChangePage: (currentPage: number) => void;
     totalRow: number,
     pageSize: number,
-    setting?: PaginationItemSetting
+    setPageSize?: Dispatch<SetStateAction<number>>,
+    setting?: PaginationItemSetting,
+    showSizeCharger?: boolean
 }
 
 export interface PageItemProps {
