@@ -29,5 +29,5 @@ export interface UsePaginationItemsProps {
     totalPage: number;
     currentPage: number;
     onChangePage: (page: number) => void;
-    pageEllipsis: number;
+
   }

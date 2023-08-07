@@ -6,9 +6,9 @@ import { UsePaginationItemsProps } from './model';
 const useCreatePaginationItem = ({
   totalPage,
   currentPage,
-  onChangePage,
-  pageEllipsis
+  onChangePage
 }: UsePaginationItemsProps) => {
+  const pageEllipsis = 1;
   const items = new Array(totalPage).fill(null).map((_, page) => {
     page++;
     if (

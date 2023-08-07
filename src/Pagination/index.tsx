@@ -19,8 +19,6 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     },
     ref
   ) => {
-    const pageEllipsis = 1;
-
     const total = Math.ceil(totalRow / pageSize);
 
     const [totalPage, setTotalPage] = useState(total);
@@ -33,8 +31,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     const items = useCreatePaginationItem({
       totalPage: total,
       currentPage,
-      onChangePage: handleChangePage,
-      pageEllipsis
+      onChangePage: handleChangePage
     });
 
     useEffect(() => {
