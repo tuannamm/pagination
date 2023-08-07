@@ -7,6 +7,7 @@ export const StyledPagination = styled.div(({ setting }: StyleProps) => {
   const {itemWidth, itemHeight, fontSize} = setting;
 
   return {
+      height: pxToRem(itemHeight),
     '.pagination': {
         position: "relative",
         display: "flex",
