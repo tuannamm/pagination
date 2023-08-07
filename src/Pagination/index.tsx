@@ -31,7 +31,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     const handleChangePage = (page: number) => onChangePage?.(page);
 
     const items = useCreatePaginationItem({
-      totalPage,
+      total,
       currentPage,
       onChangePage: handleChangePage,
       pageEllipsis
@@ -54,7 +54,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
             key='prev'
             onClick={() => handleChangePage(currentPage - 1)}
           />
-          {items}
+          {items || []}
           <Pagination.Next
             disabled={isDisabledNext}
             key='next'
