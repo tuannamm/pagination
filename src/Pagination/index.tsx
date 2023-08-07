@@ -9,7 +9,7 @@ import { PaginationProps } from './model';
 import { StyledPagination } from './styled';
 import useCreatePaginationItem from './useCreatePaginationItem';
 
-const options2 = [
+const options = [
   { value: 10, label: '10 / page' },
   { value: 20, label: '20 / page' },
   { value: 50, label: '50 / page' }
@@ -73,7 +73,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
           />
         </Pagination>
         {showSizeCharger && (
-          <Select options={options2} value={pageSize} onChange={setPageSize} />
+          <Select options={options} value={pageSize} onChange={setPageSize} />
         )}
       </StyledPagination>
     );
