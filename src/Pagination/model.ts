@@ -26,7 +26,7 @@ export interface PageItemProps {
 }
 
 export interface UsePaginationItemsProps {
-    total: number;
+    totalPage: number;
     currentPage: number;
     onChangePage: (page: number) => void;
     pageEllipsis: number;

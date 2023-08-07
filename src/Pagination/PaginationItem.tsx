@@ -5,14 +5,8 @@ import { PageItemProps } from './model';
 
 const PaginationItem = forwardRef<HTMLDivElement, PageItemProps>(
   ({ page, key, active, onClick, ...restProps }, ref) => {
-    const handleChangePage = (page: number) => onClick?.(page);
-
     return (
-      <Pagination.Item
-        key={key}
-        active={active}
-        onClick={() => handleChangePage(page)}
-      >
+      <Pagination.Item key={key} active={active} onClick={() => onClick(page)}>
         {page}
       </Pagination.Item>
     );

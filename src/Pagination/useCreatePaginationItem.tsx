@@ -2,19 +2,18 @@ import PaginationItem from './PaginationItem';
 import { Pagination } from 'react-bootstrap';
 
 import { UsePaginationItemsProps } from './model';
-import { MouseEventHandler } from 'react';
 
 const useCreatePaginationItem = ({
-  total,
+  totalPage,
   currentPage,
   onChangePage,
   pageEllipsis
 }: UsePaginationItemsProps) => {
-  const items = new Array(total).fill(null).map((_, page) => {
+  const items = new Array(totalPage).fill(null).map((_, page) => {
     page++;
     if (
       page <= 2 ||
-      page > total - 2 ||
+      page > totalPage - 2 ||
       Math.abs(currentPage - page) <= pageEllipsis
     )
       return (
@@ -39,7 +38,7 @@ const useCreatePaginationItem = ({
     );
   }
 
-  if (currentPage + pageEllipsis < total - 2) {
+  if (currentPage + pageEllipsis < totalPage - 2) {
     items.splice(
       items.length - 2,
       1,
