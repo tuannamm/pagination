@@ -34,7 +34,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
     const [totalPage, setTotalPage] = useState(total);
 
     const isDisabledPrev = currentPage <= 1;
-    const isDisabledNext = currentPage >= totalPage;
+    const isDisabledNext = currentPage >= total;
 
     const handleChangePage = (page: number) => onChangePage?.(page);
 
@@ -46,8 +46,9 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
 
     useEffect(() => {
       if (totalRow === undefined) return;
-      setTotalPage(total);
-    }, [totalRow]);
+      setTotalPage(totalPage);
+      handleChangePage(1);
+    }, [totalRow, pageSize]);
 
     return (
       <StyledPagination setting={setting}>
@@ -69,7 +70,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
           />
           <Pagination.Last
             disabled={isDisabledNext}
-            onClick={() => handleChangePage(totalPage)}
+            onClick={() => handleChangePage(total)}
           />
         </Pagination>
         {showSizeCharger && (
