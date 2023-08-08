@@ -7,7 +7,7 @@ export interface PaginationItemSetting {
 }
 
 export type StyleProps = HTMLAttributes<HTMLDivElement> & {
-    setting?: PaginationItemSetting | any,
+    setting: PaginationItemSetting | Record<string, any>,
 }
 
 export interface PaginationProps {
@@ -31,5 +31,4 @@ export interface UsePaginationItemsProps {
     totalPage: number;
     currentPage: number;
     onChangePage: (page: number) => void;
-
   }
