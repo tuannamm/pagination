@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { PaginationProps } from './model';
 import { StyledPagination } from './styled';
-import useCreatePaginationItem from './useCreatePaginationItem';
+import useCreatePagination from './useCreatePagination';
 
 const options = [
   { value: 10, label: '10 / page' },
@@ -38,7 +38,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
 
     const handleChangePage = (page: number) => onChangePage?.(page);
 
-    const items = useCreatePaginationItem({
+    const items = useCreatePagination({
       totalPage: total,
       currentPage,
       onChangePage: handleChangePage

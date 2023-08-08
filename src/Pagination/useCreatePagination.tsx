@@ -3,7 +3,7 @@ import { Pagination } from 'react-bootstrap';
 
 import { UsePaginationItemsProps } from './model';
 
-const useCreatePaginationItem = ({
+const useCreatePagination = ({
   totalPage,
   currentPage,
   onChangePage
@@ -51,4 +51,4 @@ const useCreatePaginationItem = ({
   return items;
 };
 
-export default useCreatePaginationItem;
+export default useCreatePagination;
