@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { MouseEventHandler, forwardRef, useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { Select } from '@dgtx/select';
@@ -24,7 +24,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
       onChangePage,
       setPageSize,
       setting = { itemWidth: 32, itemHeight: 32, fontSize: 14 },
-      showSizeCharger = false,
+      showSizePage = false,
       ...restProps
     },
     ref
@@ -73,7 +73,7 @@ const GridPagination = forwardRef<HTMLDivElement, PaginationProps>(
             onClick={() => handleChangePage(total)}
           />
         </Pagination>
-        {showSizeCharger && (
+        {showSizePage && (
           <Select options={options} value={pageSize} onChange={setPageSize} />
         )}
       </StyledPagination>

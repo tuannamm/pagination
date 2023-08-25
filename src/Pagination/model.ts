@@ -17,7 +17,7 @@ export interface PaginationProps {
     pageSize: number,
     setPageSize?: Dispatch<SetStateAction<number>>,
     setting?: PaginationItemSetting,
-    showSizeCharger?: boolean
+    showSizePage?: boolean
 }
 
 export interface PageItemProps {
