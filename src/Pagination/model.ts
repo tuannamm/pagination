@@ -12,7 +12,7 @@ export type StyleProps = HTMLAttributes<HTMLDivElement> & {
 
 export interface PaginationProps {
     currentPage: number | 1;
-    onChangePage: (currentPage: number) => void;
+    onChangePage: Dispatch<SetStateAction<number>>;
     totalRow: number,
     pageSize: number,
     setPageSize?: Dispatch<SetStateAction<number>>,

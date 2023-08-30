@@ -1,4 +1,4 @@
-import { MouseEventHandler, forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { Select } from '@dgtx/select';

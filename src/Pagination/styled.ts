@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { pxToRem, COLOR } from "@dgtx/utils";
-
+import { pxToRem } from "@dgtx/utils";
 
 import { StyleProps } from "./model";
 
@@ -18,7 +17,7 @@ export const StyledPagination = styled.div(({ setting }: StyleProps) => {
         gap: pxToRem(8),
       '.page-item': {
         textAlign: "center",
-        backgroundColor: `${COLOR.GREY_1}`,
+        backgroundColor: `grey`,
        '.page-link': {
           display: "flex",
           justifyContent: "center",
@@ -28,13 +27,13 @@ export const StyledPagination = styled.div(({ setting }: StyleProps) => {
           alignContent: "center",
           width: pxToRem(itemWidth),
           height: pxToRem(itemHeight),
-          border: `${pxToRem(1)} solid ${COLOR.GREY_5}`,
+          border: `${pxToRem(1)} solid grey`,
           padding: `${pxToRem(4)} ${pxToRem(7)}`,
           fontSize: pxToRem(fontSize)
         },
       },
       '.page-item.active .page-link': {
-        backgroundColor: `${COLOR.BLUE_6}`,
+        backgroundColor: `grey`,
         color: "white",
       },
     }
